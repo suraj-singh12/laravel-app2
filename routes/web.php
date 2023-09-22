@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\newMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -188,5 +191,44 @@ Route::get('/define2', function() {
 Route::get('/userProfile', [UserController::class, 'showProfile']);
 
 
+// simple grouping of routes based on prefix
+Route::prefix('admin')->group(function() {
+    // routes defined here will have the admin prefix now
 
+    Route::get('dashboard', [HomeController::class, 'dashboard']);
+    Route::get('users', [HomeController::class, 'users']);
+    Route::get('settings', [HomeController::class, 'settings']);
+});
+
+// applying middleware to a group
+// Route::prefix('admin')->middleware('newMiddleware')->group(function() {
+//     // routes defined here will have the 'admin' prefix & use the 'newMiddleware' middleware
+
+//     Route::get('dashboard', [HomeController::class, 'dashboard']);
+//     Route::get('users', [HomeController::class, 'users']);
+//     Route::get('settings', [HomeController::class, 'settings']);
+// });
+
+Route::resource('posts', PostController::class);
+
+
+Route::get('/user/{id}', [UserController::class, 'getInfo']);
+
+Route::get('/currentUrl', function() {
+    return view('current-url');
+});
+
+Route::get('/currentUrl2', [UserController::class, 'currentUrl']);
+
+Route::get('/profile2', function() {
+    return 'Profile of user!!';
+});
+
+Route::get('/frameworkUrl', function() {
+    return view('framework-urls');
+});
+
+Route::get('generationUrl', function() {
+    return view('generation-urls');
+});
 
