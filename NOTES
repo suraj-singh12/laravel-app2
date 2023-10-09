@@ -9,5 +9,15 @@ MAIL_HOST=127.0.0.1
 php artisan make:controller EmailController
 php artisan make:view my_mail
 
+php artisan config:cache
+php artisan config:clear        // to clear the config cache, will fix errors
+
+
+default middleware are registered in app/Http/Kernel.php
+in the web.php
+
+in_array(value, [e1, e2]) function is used to check whether a value exists in an array or not.
+    returns true or false
+
 
 

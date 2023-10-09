@@ -234,3 +234,9 @@ Route::get('generationUrl', function() {
 });
 
 Route::get('/send-email', [EmailController::class, 'sendMail']);
+
+Route::get('/{lang?}', function() {
+    return view('welcome');
+});
+
+
