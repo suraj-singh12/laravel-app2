@@ -5,7 +5,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\newMiddleware;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RequestDemoController;
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,7 +56,7 @@ Route::get('/userId/{id}', function($id) {
 })->whereAlphaNumeric('id');
 
 
-// see we apply constraint on route paramter, not the variable name we give to the param 
+// see we apply constraint on route paramter, not the variable name we give to the param
 Route::get('attandance/{subject}', function($sub) {
     return 'Attandance for subject: ' .$sub;
 })->whereIn('subject', ['cpp', 'java']);
@@ -73,7 +74,7 @@ Route::get('/userInfo/{regNo}/{name}', function($reg, $name) {
 /*
     Defining route parameter global constraints
         allows applying constraints to all the routes in application
-        useful for enforcing common validation rules on various route param 
+        useful for enforcing common validation rules on various route param
 
         done inside boot method of
         app/Providers/RouteServiceProvider.php
@@ -100,7 +101,7 @@ Route::get('/test', ['as' => 'testing', function() {
 
 Route::get('redirect', function() {
     return redirect()->route('testing');
-    // redirects to 'testing' named route  
+    // redirects to 'testing' named route
 });
 
 
@@ -147,7 +148,7 @@ Route::get('/respV', function() {
                 ->header('Content-Type', 'text/html');
 });
 
-// returning JSON responses 
+// returning JSON responses
 Route::get('/respV2', function() {
     return response()->json([
         'name' => 'Alpha',
@@ -176,7 +177,7 @@ Route::get('/define', function() {
                 ->with('occupation', 'America');
 });
 
-// another shortcut 
+// another shortcut
 Route::get('/define2', function() {
     $name = "fury";
     $occupation = "defence";
@@ -232,3 +233,4 @@ Route::get('generationUrl', function() {
     return view('generation-urls');
 });
 
+Route::get('/send-email', [EmailController::class, 'sendMail']);

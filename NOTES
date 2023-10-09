@@ -1,0 +1,13 @@
+1025 is the SMTP port of mailhog server
+8025 is the HTTP port of mailhog server
+
+A mailable class defines how an email message should be built.
+
+php artisan make:mail MyMail
+// config for laravel to know we are using mailhog server
+MAIL_HOST=127.0.0.1
+php artisan make:controller EmailController
+php artisan make:view my_mail
+
+
+
