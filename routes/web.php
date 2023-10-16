@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -239,4 +240,6 @@ Route::get('/{lang?}', function() {
     return view('welcome');
 });
 
+Route::get('/contact', [FormController::class, 'index']);
+Route::post('/contact', [FormController::class, 'store']);
 
