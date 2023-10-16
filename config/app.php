@@ -168,6 +168,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,     // registering the provider for FormMacro
+        App\Providers\FormMacroServiceProvider::class,  // registering the provider for FormMacro
     ])->toArray(),
 
     /*

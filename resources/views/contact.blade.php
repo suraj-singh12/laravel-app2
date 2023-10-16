@@ -51,7 +51,12 @@
             @enderror
         </div>
 
+        <div>
+            {{ Form::customDateInput('custom_date', null, ['id' => 'custom_date_field']) }}
+        </div>
+        
         <button type="submit">Submit</button>
+
     </form>
 </body>
 </html>

@@ -237,3 +237,10 @@ Route::get('/send-email', [EmailController::class, 'sendMail']);
 
 Route::get('/contact', [FormController::class, 'index']);
 Route::post('/contact', [FormController::class, 'store']);
+
+
+// form macro:
+// composer require laravelcollective/html
+// php artisan make:provider FormMacroServiceProvider
+
+
