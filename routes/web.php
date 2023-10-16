@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -234,3 +234,6 @@ Route::get('generationUrl', function() {
 });
 
 Route::get('/send-email', [EmailController::class, 'sendMail']);
+
+Route::get('/contact', [FormController::class, 'index']);
+Route::post('/contact', [FormController::class, 'store']);
