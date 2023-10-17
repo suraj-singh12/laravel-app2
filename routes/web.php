@@ -244,3 +244,30 @@ Route::post('/contact', [FormController::class, 'store']);
 // php artisan make:provider FormMacroServiceProvider
 
 
+// Laravel's database abstraction layer - Eloquent ORM
+// Eloquent ORM:
+// Benefits of ORM:
+// 1. No need to write SQL queries
+// 2. No need to write code for database connection
+
+// Database Abstraction
+// Object Oriented Approach
+// Database Independent
+// Database Portability
+
+// making a model: php artisan make:model modelName
+/**
+ * run mysql from zampp
+ * create database : create database laravel;
+ * use database: use laravel;
+ * create table: create table posts(id int(10) auto_increment primary key, title varchar(255), body text);
+ * insert data: insert into posts(title, body) values('post1', 'body1');
+ * select data: select * from posts;
+ *
+ * change config/database.php 'mysql' settings, then .env file also
+ * php artisan make:migrate create_posts
+ * it is a way to define and execute database schema changes using code i.e. Version Control!
+ * php artisan migrate
+ */
+
+
