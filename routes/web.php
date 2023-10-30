@@ -2,6 +2,7 @@
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\newMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -270,4 +271,18 @@ Route::post('/contact', [FormController::class, 'store']);
  * php artisan migrate
  */
 
+
+/**
+ * php artisan make:model Task -m
+ * this will create a 'Task' model in the app/Models and a migration file in the database/migrations
+ * php artisan make:controller TaskController
+ */
+
+Route::get('/tasks/create', [TaskController::class, 'create']);
+Route::post('/tasks', [TaskController::class, 'store']);
+
+
+
+// command for making resource controller:
+// php artisan make:controller ControllerName --resource
 
