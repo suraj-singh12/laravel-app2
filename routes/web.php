@@ -280,7 +280,12 @@ Route::post('/contact', [FormController::class, 'store']);
 
 Route::get('/tasks/create', [TaskController::class, 'create']);
 Route::post('/tasks', [TaskController::class, 'store']);
+Route::get('/tasks', [TaskController::class, 'index']);
 
+Route::get('/tasks/{id}/edit', [TaskController::class, 'edit']);
+Route::put('/tasks/{id}', [TaskController::class, 'update']);
+Route::delete('tasks/{id}',[TaskController::class,'destroy']);
+Route::get('/tasks/search', [TaskController::class, 'search']);
 
 
 // command for making resource controller:

@@ -10,3 +10,6 @@ class Task extends Model
     use HasFactory;
     protected $fillable = ['title', 'description'];
 }
+// change the last commit message
+// git commit --amend -m "New commit message"
+
