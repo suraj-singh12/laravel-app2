@@ -31,9 +31,9 @@
             <hr>
         @endforeach
     </ul>
-    {{-- <div class="pagination">
+    <div class="pagination">
         {{ $tasks->links() }}
-    </div> --}}
+    </div>
 </body>
 
 </html>

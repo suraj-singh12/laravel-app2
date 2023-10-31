@@ -22,8 +22,8 @@ class TaskController extends Controller
     }
 
     public function index() {
-        // $tasks = Task::paginate(6);
-        $tasks = Task::all();
+        $tasks = Task::paginate(2);
+        // $tasks = Task::all();
         return view('index', ['tasks' => $tasks]);
     }
 
@@ -53,8 +53,9 @@ class TaskController extends Controller
 
     public function search(Request $request){
         $query = $request->input('query');
-        $tasks = Task::where('title','like','%'.$query.'%')->orwhere('description','like','%'.$query.'%')->get();
+        $tasks = Task::where('title','like','%'.$query.'%')->orwhere('description','like','%'.$query.'%')->paginate(2);
         return view('index',['tasks'=>$tasks]);
     }
 }
+
 
